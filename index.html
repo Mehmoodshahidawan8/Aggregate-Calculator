@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Aggregate Calculator</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            text-align: center;
+            margin: 50px;
+        }
+        .container {
+            max-width: 400px;
+            margin: auto;
+            padding: 20px;
+            border: 1px solid #ddd;
+            border-radius: 10px;
+            box-shadow: 2px 2px 10px rgba(0,0,0,0.1);
+        }
+        input {
+            width: 100%;
+            padding: 8px;
+            margin: 10px 0;
+        }
+        button {
+            padding: 10px;
+            background-color: blue;
+            color: white;
+            border: none;
+            cursor: pointer;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h2>Aggregate Calculator</h2>
+        <label>Matric %</label>
+        <input type="number" id="matric" placeholder="Enter Matric %" required>
+        <label>Intermediate %</label>
+        <input type="number" id="inter" placeholder="Enter Intermediate %" required>
+        <label>Entry Test %</label>
+        <input type="number" id="entryTest" placeholder="Enter Entry Test %" required>
+        <button onclick="calculateAggregate()">Calculate</button>
+        <h3 id="result"></h3>
+    </div>
+    
+    <script>
+        function calculateAggregate() {
+            let matric = parseFloat(document.getElementById("matric").value) || 0;
+            let inter = parseFloat(document.getElementById("inter").value) || 0;
+            let entryTest = parseFloat(document.getElementById("entryTest").value) || 0;
+            
+            let aggregate = (matric * 0.1) + (inter * 0.4) + (entryTest * 0.5);
+            document.getElementById("result").innerText = "Your Aggregate: " + aggregate.toFixed(2) + "%";
+        }
+    </script>
+</body>
+</html>
